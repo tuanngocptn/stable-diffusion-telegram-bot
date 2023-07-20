@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  python:
+    container_name: hippo-stable-diffusion
+    build: .
+    environment:
+      - TOKEN= <<TOKEN>>
+      - API_ID= <<API_ID>>
+      - API_HASH= <<API_HASH>>
+      - KEY= <<KEY>>
+    volumes:
+      - .:/code

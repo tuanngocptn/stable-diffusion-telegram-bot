@@ -13,7 +13,6 @@ import requests
 
 import asyncio, time
 
-
 TOKEN = os.getenv('TOKEN')
 API_ID = os.getenv('API_ID')
 API_HASH = os.getenv('API_HASH')
@@ -921,27 +920,25 @@ async def mangadown(client, message):
                 await message.reply_text(f"You tried to use a nsfw blacklist word! ({word})")
                 return
     user = message.from_user.id
-    
-
         
-        msg = msgs[1]
-        userid = message.from_user.id
+    msg = msgs[1]
+    userid = message.from_user.id
 
-        keyboard = [[
-            InlineKeyboardButton("Square",
-                                 callback_data=f"square_{userid}"),
-            InlineKeyboardButton("Landscape",
-                                 callback_data=f"landscape_{userid}"),
-                                 
-            InlineKeyboardButton("Portrait",
-                                 callback_data=f"portrait_{userid}"),
-        ]]
-        reply_markup = InlineKeyboardMarkup(keyboard)
-        await message.reply_text(
-            text=f"{msg}\n Please Select Aspect Ratio",
-            reply_markup=reply_markup,
-            quote=False,
-        )
+    keyboard = [[
+        InlineKeyboardButton("Square",
+                                callback_data=f"square_{userid}"),
+        InlineKeyboardButton("Landscape",
+                                callback_data=f"landscape_{userid}"),
+                                
+        InlineKeyboardButton("Portrait",
+                                callback_data=f"portrait_{userid}"),
+    ]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await message.reply_text(
+        text=f"{msg}\n Please Select Aspect Ratio",
+        reply_markup=reply_markup,
+        quote=False,
+    )
         
     
 
@@ -950,7 +947,6 @@ async def mangadown(client, message):
 @app.on_message(filters.command(["start"], prefixes=["/", "!"]))
 async def start(client, message):
           
-    ]]
     keyboard = [[
         InlineKeyboardButton("Support", url="https://discord.gg/v7AW8nD8dD"),
     ],
